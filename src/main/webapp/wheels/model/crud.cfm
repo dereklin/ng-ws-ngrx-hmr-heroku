@@ -22,6 +22,7 @@
 	<cfargument name="properties" type="struct" required="false" default="#StructNew()#" hint="See documentation for @new.">
 	<cfargument name="parameterize" type="any" required="false" hint="See documentation for @findAll.">
 	<cfargument name="reload" type="boolean" required="false" hint="See documentation for @save.">
+	<cfargument name="validate" type="boolean" required="false" default="true" hint="See documentation for @save.">
 	<cfargument name="transaction" type="string" required="false" default="#application.wheels.transactionMode#" hint="See documentation for @save.">
 	<cfargument name="callbacks" type="boolean" required="false" default="true" hint="See documentation for @save.">
 	<cfscript>
@@ -30,7 +31,7 @@
 		loc.parameterize = arguments.parameterize;
 		StructDelete(arguments, "parameterize");
 		loc.returnValue = new(argumentCollection=arguments);
-		loc.returnValue.save(parameterize=loc.parameterize, reload=arguments.reload, transaction=arguments.transaction, callbacks=arguments.callbacks);
+		loc.returnValue.save(parameterize=loc.parameterize, reload=arguments.reload, validate=arguments.validate, transaction=arguments.transaction, callbacks=arguments.callbacks);
 	</cfscript>
 	<cfreturn loc.returnValue>
 </cffunction>
@@ -206,11 +207,17 @@
 		if (StructKeyExists(loc, "returnValue") && !Len(loc.returnValue))
 		{
 			if (arguments.returnAs == "query")
+			{
 				loc.returnValue = QueryNew("");
+			}
 			else if (singularize(arguments.returnAs) == arguments.returnAs)
+			{
 				loc.returnValue = false;
+			}
 			else
+			{
 				loc.returnValue = ArrayNew(1);
+			}
 		}
 		else if (!StructKeyExists(loc, "returnValue"))
 		{
@@ -229,10 +236,14 @@
 				loc.sql = $addWhereClause(sql=loc.sql, where=loc.originalWhere, include=arguments.include, includeSoftDeletes=arguments.includeSoftDeletes);
 				loc.groupBy = $groupByClause(select=arguments.select, group=arguments.group, include=arguments.include, distinct=arguments.distinct, returnAs=arguments.returnAs);
 				if (Len(loc.groupBy))
+				{
 					ArrayAppend(loc.sql, loc.groupBy);
+				}
 				loc.orderBy = $orderByClause(order=arguments.order, include=arguments.include);
 				if (Len(loc.orderBy))
+				{
 					ArrayAppend(loc.sql, loc.orderBy);
+				}
 				$addToCache(key=loc.queryShellKey, value=loc.sql, category="sql");
 			}
 
@@ -255,7 +266,9 @@
 				loc.finderArgs.offset = arguments.$offset;
 				loc.finderArgs.$primaryKey = primaryKeys();
 				if (application.wheels.cacheQueries && (IsNumeric(arguments.cache) || (IsBoolean(arguments.cache) && arguments.cache)))
+				{
 					loc.finderArgs.cachedWithin = $timeSpanForCache(arguments.cache);
+				}
 				loc.findAll = variables.wheels.class.adapter.$query(argumentCollection=loc.finderArgs);
 				request.wheels[loc.queryKey] = loc.findAll; // <- store in request cache so we never run the exact same query twice in the same request
 			}
@@ -834,7 +847,7 @@
 				if ($validateAssociations() && $callback("beforeValidationOnCreate", arguments.callbacks) && $validate("onSave,onCreate", arguments.validate) && $callback("afterValidation", arguments.callbacks) && $callback("afterValidationOnCreate", arguments.callbacks) && $callback("beforeSave", arguments.callbacks) && $callback("beforeCreate", arguments.callbacks))
 				{
 					$create(parameterize=arguments.parameterize, reload=arguments.reload);
-					if ($saveAssociations(argumentCollection=arguments) && $callback("afterCreate", arguments.callbacks) && $callback("afterSave", arguments.callbacks))
+					if ($saveAssociations(argumentCollection=arguments, validate=false, callbacks=false) && $callback("afterCreate", arguments.callbacks) && $callback("afterSave", arguments.callbacks))
 					{
 						$updatePersistedProperties();
 						loc.ret = true;
@@ -950,44 +963,71 @@
 	<cfscript>
 		var loc = {};
 		if (variables.wheels.class.timeStampingOnCreate)
+		{
 			$timestampProperty(property=variables.wheels.class.timeStampOnCreateProperty);
+		}
 		if (application.wheels.setUpdatedAtOnCreate && variables.wheels.class.timeStampingOnUpdate)
+		{
 			$timestampProperty(property=variables.wheels.class.timeStampOnUpdateProperty);
+		}
+
+		// start by adding column names and values for the properties that exist on the object to two arrays
 		loc.sql = [];
 		loc.sql2 = [];
-		ArrayAppend(loc.sql, "INSERT INTO #tableName()# (");
-		ArrayAppend(loc.sql2, " VALUES (");
 		for (loc.key in variables.wheels.class.properties)
 		{
 			if (StructKeyExists(this, loc.key))
 			{
 				ArrayAppend(loc.sql, variables.wheels.class.properties[loc.key].column);
 				ArrayAppend(loc.sql, ",");
-				loc.param = $buildQueryParamValues(loc.key);
-				ArrayAppend(loc.sql2, loc.param);
+				ArrayAppend(loc.sql2, $buildQueryParamValues(loc.key));
 				ArrayAppend(loc.sql2, ",");
 			}
 		}
-		ArrayDeleteAt(loc.sql, ArrayLen(loc.sql));
-		ArrayDeleteAt(loc.sql2, ArrayLen(loc.sql2));
-		ArrayAppend(loc.sql, ")");
-		ArrayAppend(loc.sql2, ")");
-		loc.iEnd = ArrayLen(loc.sql);
-		for (loc.i=1; loc.i <= loc.iEnd; loc.i++)
-			ArrayAppend(loc.sql, loc.sql2[loc.i]);
 
-		// map the primary keys down to the SQL columns before calling
-		loc.primaryKeys = ListToArray(primaryKeys());
-		loc.iEnd = ArrayLen(loc.primaryKeys);
-		for(loc.i = 1; loc.i LTE loc.iEnd; loc.i++)
-			loc.primaryKeys[loc.i] = variables.wheels.class.properties[loc.primaryKeys[loc.i]].column;
+		if (ArrayLen(loc.sql))
+		{
+			// create wrapping sql code and merge the second array that holds the values with the first one
+			ArrayPrepend(loc.sql, "INSERT INTO #tableName()# (");
+			ArrayPrepend(loc.sql2, " VALUES (");
+			ArrayDeleteAt(loc.sql, ArrayLen(loc.sql));
+			ArrayDeleteAt(loc.sql2, ArrayLen(loc.sql2));
+			ArrayAppend(loc.sql, ")");
+			ArrayAppend(loc.sql2, ")");
+			loc.iEnd = ArrayLen(loc.sql);
+			for (loc.i=1; loc.i <= loc.iEnd; loc.i++)
+			{
+				ArrayAppend(loc.sql, loc.sql2[loc.i]);
+			}
 
-		loc.ins = variables.wheels.class.adapter.$query(sql=loc.sql, parameterize=arguments.parameterize, $primaryKey=ArrayToList(loc.primaryKeys));
+			// map the primary keys down to the sql columns
+			loc.primaryKeys = ListToArray(primaryKeys());
+			loc.iEnd = ArrayLen(loc.primaryKeys);
+			for(loc.i=1; loc.i <= loc.iEnd; loc.i++)
+			{
+				loc.primaryKeys[loc.i] = variables.wheels.class.properties[loc.primaryKeys[loc.i]].column;
+			}
+			loc.primaryKeys = ArrayToList(loc.primaryKeys);
+		}
+		else
+		{
+			// no properties were set on the object so we insert a record with only default values to the database
+			loc.primaryKeys = primaryKey(0);
+			ArrayAppend(loc.sql, "INSERT INTO #tableName()#" & variables.wheels.class.adapter.$defaultValues($primaryKey=loc.primaryKeys));
+		}
+
+		// run the insert sql statement and set the primary key value on the object (if one was returned from the database)
+		loc.ins = variables.wheels.class.adapter.$query(sql=loc.sql, parameterize=arguments.parameterize, $primaryKey=loc.primaryKeys);
 		loc.generatedKey = variables.wheels.class.adapter.$generatedKey();
 		if (StructKeyExists(loc.ins.result, loc.generatedKey))
+		{
 			this[primaryKeys(1)] = loc.ins.result[loc.generatedKey];
+		}
+
 		if (arguments.reload)
+		{
 			this.reload();
+		}
 	</cfscript>
 	<cfreturn true>
 </cffunction>

@@ -7,7 +7,7 @@
   <artifactId>helloworld</artifactId>
   <packaging>jar</packaging>
   <properties>
-    <java.version>1.6</java.version>
+    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
@@ -36,12 +36,12 @@
     <dependency>
       <groupId>org.getrailo</groupId>
       <artifactId>railo</artifactId>
-      <version>4.0.1.006</version>
+      <version>4.3.0.000</version>
     </dependency>
     <dependency>
       <groupId>org.tuckey</groupId>
       <artifactId>urlrewritefilter</artifactId>
-      <version>4.0.3</version>
+      <version>4.0.4</version>
     </dependency>
   </dependencies>
   <repositories>

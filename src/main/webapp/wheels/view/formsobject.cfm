@@ -20,26 +20,30 @@
 	<cfargument name="association" type="string" required="false" hint="The name of the association that the property is located on. Used for building nested forms that work with nested properties. If you are building a form with deep nesting, simply pass in a list to the nested object, and Wheels will figure it out.">
 	<cfargument name="position" type="string" required="false" hint="The position used when referencing a `hasMany` relationship in the `association` argument. Used for building nested forms that work with nested properties. If you are building a form with deep nestings, simply pass in a list of positions, and Wheels will figure it out.">
 	<cfargument name="label" type="string" required="false" hint="The label text to use in the form control.">
-	<cfargument name="labelPlacement" type="string" required="false" hint="Whether to place the label `before`, `after`, or wrapped `around` the form control.">
+	<cfargument name="labelPlacement" type="string" required="false" hint="Whether to place the label `before`, `after`, or wrapped `around` the form control. Label text placement can be controlled using `aroundLeft` or `aroundRight`.">
 	<cfargument name="prepend" type="string" required="false" hint="String to prepend to the form control. Useful to wrap the form control with HTML tags.">
 	<cfargument name="append" type="string" required="false" hint="String to append to the form control. Useful to wrap the form control with HTML tags.">
 	<cfargument name="prependToLabel" type="string" required="false" hint="String to prepend to the form control's `label`. Useful to wrap the form control with HTML tags.">
 	<cfargument name="appendToLabel" type="string" required="false" hint="String to append to the form control's `label`. Useful to wrap the form control with HTML tags.">
 	<cfargument name="errorElement" type="string" required="false" hint="HTML tag to wrap the form control with when the object contains errors.">
 	<cfargument name="errorClass" type="string" required="false" hint="The class name of the HTML tag that wraps the form control when there are errors.">
+	<cfargument name="type" type="string" required="false" default="text" hint="Input `type` attribute. Common examples in HTML5 and later are `text` (default), `email`, `tel`, and `url`.">
 	<cfscript>
 		var loc = {};
-		$args(name="textField", reserved="type,name,value", args=arguments);
+		$args(name="textField", reserved="name,value", args=arguments);
 		arguments.objectName = $objectName(argumentCollection=arguments);
 		if (!StructKeyExists(arguments, "id"))
+		{
 			arguments.id = $tagId(arguments.objectName, arguments.property);
+		}
 		loc.before = $formBeforeElement(argumentCollection=arguments);
 		loc.after = $formAfterElement(argumentCollection=arguments);
-		arguments.type = "text";
 		arguments.name = $tagName(arguments.objectName, arguments.property);
-		loc.maxlength = $maxLength(argumentCollection=arguments);
-		if (StructKeyExists(loc, "maxlength"))
-			arguments.maxlength = loc.maxlength;
+		loc.maxLength = $maxLength(argumentCollection=arguments);
+		if (StructKeyExists(loc, "maxLength"))
+		{
+			arguments.maxLength = loc.maxLength;
+		}
 		arguments.value = $formValue(argumentCollection=arguments);
 		loc.returnValue = loc.before & $tag(name="input", close=true, skip="objectName,property,label,labelPlacement,prepend,append,prependToLabel,appendToLabel,errorElement,errorClass,association,position", skipStartingWith="label", attributes=arguments) & loc.after;
 	</cfscript>
@@ -539,8 +543,8 @@
 					if(StructCount(loc.object) eq 1)
 					{
 						loc.key = StructKeyList(loc.object);
-						loc.optionValue = loc.object[loc.key];
-						loc.optionText = LCase(loc.key);
+						loc.optionValue = LCase(loc.key);
+						loc.optionText = loc.object[loc.key];
 					}
 					else
 					{

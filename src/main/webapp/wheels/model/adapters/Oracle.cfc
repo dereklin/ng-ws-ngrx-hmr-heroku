@@ -1,5 +1,16 @@
 <cfcomponent extends="Base" output="false">
 
+	<cffunction name="$defaultValues" returntype="string" access="public" output="false">
+		<cfargument name="$primaryKey" type="string" required="true" hint="the table primaryKey">
+		<cfreturn "(#arguments.$primaryKey#) VALUES(DEFAULT)">
+	</cffunction>
+
+	<cffunction name="$tableAlias" returntype="string" access="public" output="false">
+		<cfargument name="table" type="string" required="true">
+		<cfargument name="alias" type="string" required="true">
+		<cfreturn arguments.table & " " & arguments.alias>
+	</cffunction>
+
 	<cffunction name="$generatedKey" returntype="string" access="public" output="false">
 		<cfreturn "rowid">
 	</cffunction>
@@ -54,8 +65,10 @@
 			arguments.sql = $addColumnsToSelectAndGroupBy(arguments.sql);
 			if (arguments.limit > 0)
 			{
-				loc.beforeWhere = "SELECT #arguments.$primaryKey# FROM (SELECT tmp.#arguments.$primaryKey#, rownum rnum FROM (";
-				loc.afterWhere = ") tmp WHERE rownum <=" & arguments.limit+arguments.offset & ")" & " WHERE rnum >" & arguments.offset;
+				loc.select = ReplaceNoCase(ReplaceNoCase(arguments.sql[1], "SELECT DISTINCT ", ""), "SELECT ", "");
+				loc.select = $columnAlias(list=$tableName(list=loc.select, action="remove"), action="keep");
+				loc.beforeWhere = "SELECT #loc.select# FROM (SELECT * FROM (SELECT tmp.*, rownum rnum FROM (";
+				loc.afterWhere = ") tmp WHERE rownum <=" & arguments.limit+arguments.offset & ")" & " WHERE rnum >" & arguments.offset & ")";
 				ArrayPrepend(arguments.sql, loc.beforeWhere);
 				ArrayAppend(arguments.sql, loc.afterWhere);
 			}

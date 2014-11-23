@@ -15,6 +15,7 @@
 	<cfargument name="append" type="string" required="false" hint="See documentation for @textField.">
 	<cfargument name="prependToLabel" type="string" required="false" hint="See documentation for @textField.">
 	<cfargument name="appendToLabel" type="string" required="false" hint="See documentation for @textField.">
+	<cfargument name="type" type="string" required="false" default="text" hint="See documentation for @textField.">
 	<cfscript>
 		var loc = {};
 		$args(name="textFieldTag", args=arguments);
@@ -114,7 +115,7 @@
 	'
 		<!--- Basic usage usually involves a `label`, `name`, and `password` --->
 		<cfoutput>
-		    ##textAreaTag(label="Description", name="description", value=params.description)##
+		    ##textAreaTag(label="Description", name="description", content=params.description)##
 		</cfoutput>
 	'
 	categories="view-helper,forms-plain" chapters="form-helpers-and-showing-errors" functions="URLFor,startFormTag,endFormTag,submitTag,textFieldTag,radioButtonTag,checkBoxTag,passwordFieldTag,hiddenFieldTag,fileFieldTag,selectTag,dateTimeSelectTags,dateSelectTags,timeSelectTags">

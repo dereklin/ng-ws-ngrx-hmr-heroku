@@ -8,7 +8,7 @@ Path placeholders:
 	{system-directory}: path to thesystem directory
 	{web-context-hash}: hash of the web context
 
---><railo-configuration password="039d16d16fb210a050abe0da2a7ba63b59357e4f397775ecfb87c46e19e0963b" version="2.0"><cfabort/>
+--><railo-configuration password="039d16d16fb210a050abe0da2a7ba63b59357e4f397775ecfb87c46e19e0963b" version="4.3"><cfabort/>
 
 	<!--
 	system:
@@ -263,4 +263,4 @@ Path placeholders:
 	-->
 	<flex configuration="xml"/>
 
-</railo-configuration>
+<logging><logger appender="resource" appender-arguments="path:{railo-config}/logs/mapping.log" layout="classic" name="mapping"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/rest.log" layout="classic" name="rest"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/gateway.log" layout="classic" name="gateway"/><logger appender="resource" appender-arguments="path:logs/" layout="classic" level="info" name="remoteclient"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/orm.log" layout="classic" name="orm"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/mail.log" layout="classic" name="mail"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/search.log" layout="classic" name="search"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/scheduler.log" layout="classic" name="scheduler"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/scope.log" layout="classic" name="scope"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/application.log" layout="classic" name="application"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/exception.log" layout="classic" name="exception"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/trace.log" layout="classic" name="trace"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/thread.log" layout="classic" name="thread"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/deploy.log" layout="classic" name="deploy"/><logger appender="resource" appender-arguments="path:{railo-config}/logs/requesttimeout.log" layout="classic" name="requesttimeout"/></logging><rest/><gateways/><search/><scheduler/></railo-configuration>
