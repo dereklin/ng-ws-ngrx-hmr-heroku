@@ -26,5 +26,24 @@ See the live demo app at:
 	
 	http://sleepy-depths-6628.herokuapp.com/
 	
-I have to thank Denny (denny@getrailo.com) for helping me figuring out the railo repository	
+I have to thank Denny (denny@getrailo.com) for helping me figure out the railo repository	
+
+heroku git:clone -a myapp
+
+Update code from heroku:
+git pull
+
+Check difference:
+git diff HEAD pom.xml
+
+Before commit
+git add .
+git commit -m "update"
+
+Deploy with git to heroku:
+git push heroku master
+
+Check differences:
+git status
+
 
