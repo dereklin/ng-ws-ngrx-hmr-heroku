@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><railo-configuration version="2.0">
+<?xml version="1.0" encoding="UTF-8"?><railo-configuration version="4.3">
 
 <!-- 
 Path placeholders:
@@ -212,4 +212,4 @@ for every argument defined railo tries to call a matching setter method
 		<logger appender="resource" appender-arguments="path:{railo-config}/logs/application.log" layout="classic" level="info" name="application"/>
 		<logger appender="resource" appender-arguments="path:{railo-config}/logs/exception.log" layout="classic" level="info" name="exception"/>	
 	</logging>		
-</railo-configuration>
+<rest/><gateways/><orm/></railo-configuration>

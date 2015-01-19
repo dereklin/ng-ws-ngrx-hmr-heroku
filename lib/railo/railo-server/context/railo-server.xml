@@ -8,7 +8,7 @@ Path placeholders:
 	{system-directory}: path to thesystem directory
 	{web-context-hash}: hash of the web context
 
---><railo-configuration password="" version="4.3"><cfabort/>
+--><railo-configuration pw="c182c283fe1ea5b07bd5ea0bc3590c7e01c6cbd1937d1c109af86440fb25769f" version="4.3"><cfabort/>
 
 	<!--
 	system:
@@ -35,7 +35,7 @@ Path placeholders:
 <!--	 - http://sourceforge.net 																		-->
 <!--	or ask your database distributor 																-->
 	<data-sources psq="false">
-	</data-sources>
+	<data-source allow="511" blob="false" class="org.postgresql.Driver" clob="false" connectionLimit="-1" connectionTimeout="1" custom="" database="" dbdriver="Other" dsn="jdbc:postgresql://ec2-54-243-194-40.compute-1.amazonaws.com:5432/d443dgun7l838v?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory" host="" metaCacheTimeout="60000" name="cobalt" password="encrypted:638a1301e66b1341d6894b4356d000de1d3614cdad3a612f680a400327508ef6221ef9311528a31490411be910fd8be95a60bea9ff85bc6bfb9845200388479d" port="-1" storage="false" username="anindvhrsaiazn" validate="false"/></data-sources>
 
 	<!--
 		deploy-directory - directory where java classes will be deployed
