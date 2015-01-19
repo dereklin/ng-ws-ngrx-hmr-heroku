@@ -43,3 +43,5 @@ git push heroku master
 
 Check differences:
 git status
+
+https://devcenter.heroku.com/articles/git
