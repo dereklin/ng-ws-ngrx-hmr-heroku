@@ -151,7 +151,7 @@ Path placeholders:
 	<scope applicationtimeout="1,0,0,0" cascade-to-resultset="yes" cascading="standard" client-directory-max-size="10mb" client-max-age="90" clientmanagement="no" merge-url-form="no" requesttimeout="0,0,0,50" requesttimeout-log="{railo-config}/logs/requesttimeout.log" sessionmanagement="yes" sessiontimeout="0,0,30,0" setclientcookies="yes" setdomaincookies="no"/>
 		
 	<mail log="{railo-config}/logs/mail.log" spool-enable="yes" spool-interval="5" timeout="30">
-	</mail>
+	<server password="encrypted:95ceb5152d88e115e47664ffefbb9ee7c0792aa574ed7219a21faf86639cfd2e" port="587" smtp="smtp.gmail.com" ssl="true" tls="true" username="smtp@danshui.com"/></mail>
 	
 	<mappings>
 	<!--
