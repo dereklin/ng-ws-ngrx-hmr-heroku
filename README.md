@@ -20,10 +20,10 @@ Then run it with:
 Then see your app at:
 
     http://localhost:8080
-	
     
 See the live demo app at:
 	
+	https://blooming-dusk-1808.herokuapp.com
 	http://sleepy-depths-6628.herokuapp.com/
 	
 I have to thank Denny (denny@getrailo.com) for helping me figuring out the railo repository	
@@ -36,14 +36,10 @@ git pull
 Check difference:
 git diff HEAD pom.xml
 
-Before commit
+Deploy with git to heroku:
 git add .
 git commit -m "update"
-
-Deploy with git to heroku:
 git push heroku master
 
 Check differences:
 git status
-
-
