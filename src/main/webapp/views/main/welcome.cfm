@@ -10,6 +10,19 @@ $(document).ready(function(){
         $(this).hide();
     });
 });
+
+
+
+
+$( document ).on( "myCustomEvent", {
+    foo: "bar"
+}, function( event, arg1, arg2 ) {
+    console.log( event.data.foo ); // "bar"
+    console.log( arg1 );           // "bim"
+    console.log( arg2 );           // "baz"
+});
+ 
+$( document ).trigger( "myCustomEvent", [ {"testId":"Test1"}, "baz" ] );
 </script>
 </head>
 <body>
