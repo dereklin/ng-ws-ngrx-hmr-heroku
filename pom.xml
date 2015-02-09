@@ -36,7 +36,7 @@
     <dependency>
       <groupId>org.getrailo</groupId>
       <artifactId>railo</artifactId>
-      <version>4.3.0.000</version>
+      <version>4.2.1.008</version>
     </dependency>
     <dependency>
       <groupId>org.tuckey</groupId>

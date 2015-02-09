@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><railo-configuration pw="c182c283fe1ea5b07bd5ea0bc3590c7e01c6cbd1937d1c109af86440fb25769f" version="4.3"><cfabort/>
+<?xml version="1.0" encoding="UTF-8"?><cfRailoConfiguration pw="c182c283fe1ea5b07bd5ea0bc3590c7e01c6cbd1937d1c109af86440fb25769f" salt="769A7880-98C6-41AD-A6129C6EF3E7B1F5" version="4.3"><cfabort/>
 
 <!-- 
 Path placeholders:
@@ -212,4 +212,4 @@ for every argument defined railo tries to call a matching setter method
 		<logger appender="resource" appender-arguments="path:{railo-config}/logs/application.log" layout="classic" level="info" name="application"/>
 		<logger appender="resource" appender-arguments="path:{railo-config}/logs/exception.log" layout="classic" level="info" name="exception"/>	
 	</logging>		
-<rest/><gateways/><orm/></railo-configuration>
+<rest/><gateways/><orm/></cfRailoConfiguration>

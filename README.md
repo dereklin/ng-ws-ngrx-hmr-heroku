@@ -22,7 +22,7 @@ Then run it with:
 	
 Then see your app at:
 
-    http://localhost:8080
+    http://localhost:8001
     
 See the live demo app at:
 	
