@@ -8,6 +8,6 @@
 addRoute(name="admin", 	pattern="/admin/", controller="admin", action="index");
 addRoute(name="user", 	pattern="/[user]/[controller]/[action]/[key]");
 addRoute(name="user", 	pattern="/[user]/[controller]/[action]/");
-addRoute(name="user", 	pattern="/[user]/[controller]/", action="index");
+addRoute(name="user", 	pattern="/[user]/[controller]/", controller="[controller]", action="index");
 addRoute(name="user", 	pattern="/[user]/", controller="default", action="index");
 </cfscript>
