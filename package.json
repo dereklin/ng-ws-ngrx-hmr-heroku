@@ -1,7 +1,11 @@
 {
   "name": "danshui",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.12.3",
+    "jade": "^1.9.2",
+    "pg": "^4.3.0"
+  },
   "scripts": {
     "start": "node web.js"
   },
