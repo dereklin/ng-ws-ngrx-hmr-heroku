@@ -1,50 +1,36 @@
-http://www.danshui.com/railo-context/admin/web.cfm
+# node-js-getting-started
 
+A barebones Node.js app using [Express 4](http://expressjs.com/).
 
-# Railo4 on Heroku
+This application support the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
-This is a demo app running Railo4 on Heroku
+## Running Locally
 
-	Go to http://java.heroku.com/, create a "Containerless web app with Embedded Jetty"
+Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
-## Running the application locally
+```sh
+$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
+$ cd node-js-getting-started
+$ npm install
+$ npm start
+```
 
-First build with:
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-    mvn clean package
+## Deploying to Heroku
 
-Then run it with:
-	In Windows:
-    java -cp "target/classes;target/dependency/*" com.example.Main
-    
-    In Ubuntu:
-    java -cp target/classes:target/dependency/* com.example.Main
-	
-Then see your app at:
+```
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
 
-    http://localhost:8001
-    
-See the live demo app at:
-	
-	https://blooming-dusk-1808.herokuapp.com
-	http://sleepy-depths-6628.herokuapp.com/
-	
-I have to thank Denny (denny@getrailo.com) for helping me figuring out the railo repository	
+## Documentation
 
-heroku git:clone -a myapp
+For more information about using Node.js on Heroku, see these Dev Center articles:
 
-Update code from heroku:
-git pull
-
-Check difference:
-git diff HEAD pom.xml
-
-Deploy with git to heroku:
-git add .
-git commit -m "update"
-git push heroku master
-
-Check differences:
-git status
-
-https://devcenter.heroku.com/articles/git
+- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
+- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
+- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
+- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
