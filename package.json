@@ -5,6 +5,7 @@
     "gulp": "^3.9.0",
     "gulp-util": "~3.0.6",
     "gulp-load-plugins": "~0.10.0",
+    "browser-sync": "~2.9.11",
     "wrench": "~1.5.8",
     "bower": "^1.7.0",
     "backbone": "^1.1.2",
