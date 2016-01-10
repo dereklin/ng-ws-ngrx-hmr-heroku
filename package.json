@@ -6,6 +6,7 @@
     "gulp-util": "~3.0.6",
     "gulp-load-plugins": "~0.10.0",
     "gulp-protractor": "~1.0.0",
+    "lodash": "~3.10.1",
     "wiredep": "~2.2.2",
     "browser-sync": "~2.9.11",
     "wrench": "~1.5.8",
