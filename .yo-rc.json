@@ -1,29 +1,78 @@
 {
-  "generator-cg-angular": {
-    "uirouter": true,
-    "partialDirectory": "partial/",
-    "modalDirectory": "partial/",
-    "directiveDirectory": "directive/",
-    "filterDirectory": "filter/",
-    "serviceDirectory": "service/",
-    "inject": {
-      "js": {
-        "file": "index.html",
-        "marker": "<!-- Add New Component JS Above -->",
-        "template": "<script src=\"<%= filename %>\"></script>"
+  "generator-gulp-angular": {
+    "version": "1.0.2",
+    "props": {
+      "angularVersion": "~1.4.2",
+      "angularModules": [
+        {
+          "key": "animate",
+          "module": "ngAnimate"
+        },
+        {
+          "key": "cookies",
+          "module": "ngCookies"
+        },
+        {
+          "key": "touch",
+          "module": "ngTouch"
+        },
+        {
+          "key": "sanitize",
+          "module": "ngSanitize"
+        },
+        {
+          "key": "messages",
+          "module": "ngMessages"
+        },
+        {
+          "key": "aria",
+          "module": "ngAria"
+        }
+      ],
+      "jQuery": {
+        "key": "jquery2"
       },
-      "less": {
-        "relativeToModule": true,
-        "file": "<%= module %>.less",
-        "marker": "/* Add Component LESS Above */",
-        "template": "@import \"<%= filename %>\";"
+      "resource": {
+        "key": "$http",
+        "module": null
+      },
+      "router": {
+        "key": "ui-router",
+        "module": "ui.router"
+      },
+      "ui": {
+        "key": "bootstrap",
+        "module": null
+      },
+      "bootstrapComponents": {
+        "key": "ui-bootstrap",
+        "module": "ui.bootstrap"
+      },
+      "cssPreprocessor": {
+        "key": "node-sass",
+        "extension": "scss"
+      },
+      "jsPreprocessor": {
+        "key": "noJsPrepro",
+        "extension": "js",
+        "srcExtension": "js"
+      },
+      "htmlPreprocessor": {
+        "key": "noHtmlPrepro",
+        "extension": "html"
+      },
+      "foundationComponents": {
+        "name": null,
+        "version": null,
+        "key": null,
+        "module": null
+      },
+      "paths": {
+        "src": "src",
+        "dist": "dist",
+        "e2e": "e2e",
+        "tmp": ".tmp"
       }
-    },
-    "modules": [
-      {
-        "name": "learn",
-        "file": "learn/learn.js"
-      }
-    ]
+    }
   }
 }
