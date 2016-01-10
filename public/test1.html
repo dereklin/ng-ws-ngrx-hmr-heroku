@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+   SLIDE#1 - Starting an AngularJS app
+
+   a) To convert an HTML page to an Angular app:
+      1) add angular.js library in the page
+      2) specify 'ng-app' directive to one of the elements (html, body, ...)
+
+   b) The 'ng-app' directive to auto-bootstrap an AngularJS application
+   c) The 'ng-app' directive designates the root element of the application
+   d) You can specify an AngularJS module to be used as the root module for the application. 
+      -> This module will be loaded into the $injector when the application is bootstrapped. 
+      -> It should contain the application code needed or have dependencies on other modules that will contain the code
+
+   APPLICATION IS CONSTRUCTED AUTOMATICALLY USING *DEPENDENCY INJECTION*
+
+-->
+<html>
+   <head>
+      <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
+      <link rel="stylesheet" type="text/css" href="stylesheets/global.css">
+      <link rel="stylesheet" type="text/css" href="stylesheets/grid.css">
+      <link rel="stylesheet" type="text/css" href="stylesheets/shopping-bag.css">
+
+      <script src="javascripts/libs/angular/angular.min.js"></script>
+      <script src="javascripts/modules/shopping-bag-directive.js"></script>
+      <script src="javascripts/shopping-bag.js"></script>
+   </head>
+   <body ng-app="gid.shoppingBag">
+      <section ng-controller="DirectiveController">
+			  Hello <input ng-model='name'> <hr/>
+			  <span ng-bind="name"></span> <br/>
+			  <span ng:bind="name"></span> <br/>
+			  <span ng_bind="name"></span> <br/>
+			  <span data-ng-bind="name"></span> <br/>
+			  <span x-ng-bind="name"></span> <br/>
+
+		
+      </section>
+   </body>
+</html>

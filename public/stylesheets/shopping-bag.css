@@ -1,0 +1,22 @@
+.gid-header {
+   min-height: 150px;
+   background-color: yellow;
+}
+
+.gid-footer {
+   min-height: 300px;
+   background-color: gray;
+}
+
+.gid-active-bag {
+   min-height: 100px;
+   background-color: #cff;
+}
+.gid-saved-bag {
+   min-height: 100px;
+   background-color: #fcf;
+}
+.gid-shipping-details {
+   min-height: 100px;
+   background-color: #ffc;
+}
