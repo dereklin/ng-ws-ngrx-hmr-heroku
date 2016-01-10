@@ -1,0 +1,11 @@
+jdbc:postgresql://ec2-54-243-234-237.compute-1.amazonaws.com:5432/d91jsig1h4ad8?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+postgres://xbbwxeigkifyky:mpbuACZK5ShlX8UUi_CBhY5vT-@ec2-54-243-234-237.compute-1.amazonaws.com:5432/d91jsig1h4ad8?ssl=true
+
+
+tranquil-inlet-7167 :: jade
+jdbc:postgresql://ec2-107-22-170-37.compute-1.amazonaws.com:5432/d7a0pvb05stsae?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+postgres://tvkzjrtaeqyrmh:d97-kAkjMTUiAmJicoQXlSv1Nq@ec2-107-22-170-37.compute-1.amazonaws.com:5432/d7a0pvb05stsae?ssl=true
+
+CREATE TABLE test_table (id SERIAL, name VARCHAR);
+INSERT INTO test_table (name) VALUES ('hellow database');
+INSERT INTO test_table (name) VALUES ('Hellow World!');

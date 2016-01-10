@@ -1,0 +1,6 @@
+/web.js
+/dev.js
+/public/**
+/routes/**
+/test/protractor-conf.js
+/test/protractor/*
