@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var app = express();
-var cool = require('cool-ascii-faces');
+// var cool = require('cool-ascii-faces');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
