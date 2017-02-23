@@ -1,3 +1,0 @@
-<cfoutput>
-Hello #user#
-</cfoutput>
