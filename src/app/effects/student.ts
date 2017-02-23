@@ -39,8 +39,8 @@ export class StudentEffects {
   @Effect()
   private load$: Observable<Action> = this.actions$
     .ofType(student.ActionTypes.LOAD_STUDENTS)
-    .debounceTime(5000)
-    .delay(5000)
+    .debounceTime(2000)
+    .delay(2000)
     .withLatestFrom(this.store, (action, state) => state.student.loading)
     .filter((x) => x)
     .switchMap(() => {
