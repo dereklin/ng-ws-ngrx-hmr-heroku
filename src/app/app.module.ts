@@ -1,48 +1,36 @@
-import { PDataModule } from './p-data';
-import { CoreModule } from './core';
-import { ReflectGetOwnMetadataKeysOrderWithoutTargetKey } from 'reflect-metadata/temp/test/spec';
-import { StudentEffects } from './effects/student';
-import { StudentService } from './services/student.service';
+import '../styles/headings.css';
+import '../styles/styles.scss';
+import 'rxjs/add/operator/take';
+import { AboutComponent } from './about';
 import { AgModule } from './ag/ag.module';
+import { AppComponent } from './app.component';
+import { APP_RESOLVER_PROVIDERS } from './app.resolver';
+import { ROUTES } from './app.routes';
+import { CoreModule } from './core';
+import { StudentEffects } from './effects/student';
+import { ENV_PROVIDERS } from './environment';
 import { HomeModule } from './home/home.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { NoContentComponent } from './no-content';
+import { PDataModule } from './p-data';
+import { reducer, State as AppState } from './reducers';
+import { StudentService } from './services/student.service';
+import { ApplicationRef, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {
-  NgModule,
-  ApplicationRef
-} from '@angular/core';
-import {
-  removeNgStyles,
-  createNewHosts,
-  createInputTransfer
-} from '@angularclass/hmr';
-import {
-  RouterModule,
-  PreloadAllModules
-} from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { PreloadAllModules, RouterModule } from '@angular/router';
+import { createInputTransfer, createNewHosts, removeNgStyles } from '@angularclass/hmr';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterStoreModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 /*
  * Platform and Environment providers/directives/pipes
  */
-import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
 // App is our top level component
-import { AppComponent } from './app.component';
-import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AboutComponent } from './about';
-import { NoContentComponent } from './no-content';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { DBModule } from '@ngrx/db';
-import { RouterStoreModule } from '@ngrx/router-store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducer, State as AppState } from './reducers';
-import { Store } from '@ngrx/store';
 // import * as root from './actions/root';
-import 'rxjs/add/operator/take';
-import '../styles/styles.scss';
-import '../styles/headings.css';
 
 // Application wide providers
 const APP_PROVIDERS = [

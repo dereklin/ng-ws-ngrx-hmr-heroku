@@ -35,12 +35,14 @@ import { combineReducers } from '@ngrx/store';
  * notation packages up all of the exports into a single object.
  */
 import * as fromStudent from './student';
+import * as fromTechnology from './technology';
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
  * our top level state interface is just a map of keys to inner state types.
  */
 export interface State {
   student: fromStudent.State;
+  technology: fromTechnology.State;
 }
 
 /**
@@ -52,6 +54,7 @@ export interface State {
  */
 const reducers = {
   student: fromStudent.reducer,
+  technology: fromTechnology.reducer
 };
 
 // Generate a reducer to set the root state in dev mode for HMR
@@ -92,6 +95,7 @@ export function reducer(state: any, action: any) {
  * ```
  */
 export const getStudentState = (state: State) => state.student;
+export const getTechnologyState = (state: State) => state.technology;
 
 /**
  * Every reducer module exports selector functions, however child reducers
@@ -104,3 +108,5 @@ export const getStudentState = (state: State) => state.student;
  * pieces of state.
  */
  export const getStudents = createSelector(getStudentState, fromStudent.getStudents);
+
+ export const getTechnologies = createSelector(getTechnologyState, fromTechnology.getTechnologies);

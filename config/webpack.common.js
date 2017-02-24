@@ -59,8 +59,8 @@ module.exports = function (options) {
     entry: {
 
       'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
+      'main': AOT ? './src/main.browser.aot.ts' :
+        './src/main.browser.ts'
 
     },
 
@@ -189,7 +189,7 @@ module.exports = function (options) {
 
         /* File loader for supporting fonts, for example, in CSS files.
         */
-        { 
+        {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
           use: 'file-loader'
         }
@@ -265,11 +265,12 @@ module.exports = function (options) {
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
       new CopyWebpackPlugin([
+        { from: 'node_modules/owl.carousel/dist/assets', to: 'assets/owl-carousel' },
         { from: 'node_modules/primeng', to: 'assets/primeng' },
         { from: 'node_modules/bootstrap/dist/css/', to: 'assets/bootstrap' },
         { from: 'node_modules/ag-grid/dist/styles/', to: 'assets/ag-grid' },
         { from: 'src/assets', to: 'assets' },
-        { from: 'src/meta'}
+        { from: 'src/meta' }
       ]),
 
 
@@ -362,7 +363,10 @@ module.exports = function (options) {
       }),
 
       new webpack.ProvidePlugin({
-        faker: "faker"
+        faker: "faker",
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
       })
 
     ],

@@ -1,5 +1,14 @@
-import { ChangeDetectionStrategy, Component, DoCheck, 
-  ElementRef, HostBinding, Input, OnChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  DoCheck,
+  ElementRef,
+  HostBinding,
+  Input,
+  OnChanges,
+  OnDestroy
+} from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -7,12 +16,11 @@ import * as $ from 'jquery';
     template: `<ng-content></ng-content>`,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OwlCarouselComponent implements OnChanges {
-  @HostBinding('class') defaultClass = 'owl-carousel';
-  @Input() options: Object = {};
-  @Input() public tickers: string[];
+export class OwlCarouselComponent implements OnChanges, AfterViewInit, OnDestroy {
+  @HostBinding('class') public defaultClass = 'owl-carousel';
+  @Input() public options: Object = {};
 
-  $owlElement: any;
+  public $owlElement: any;
 
   constructor(private el: ElementRef) {}
 
@@ -24,7 +32,7 @@ export class OwlCarouselComponent implements OnChanges {
     }
   }
 
-  ngAfterViewInit() {
+  public ngAfterViewInit() {
     this.$owlElement = $(this.el.nativeElement).owlCarousel(this.options);
   }
 

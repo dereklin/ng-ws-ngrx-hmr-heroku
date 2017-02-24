@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { TechnologyCarouselModule } from '../technology-carousel';
 import { HomeModule } from '../home/home.module';
 import { NavigationModule } from '../navigation';
 import { CoreComponent } from './core.component';
@@ -10,20 +12,22 @@ import { RouterModule } from '@angular/router';
 // This Module's Components
 
 @NgModule({
-    imports: [
-      MaterialModule.forRoot(),
-      RouterModule,
-      NavigationModule,
-      HomeModule,
-    ],
-    declarations: [
-        CoreComponent,
-        NotFoundPageComponent
-    ],
-    exports: [
-        CoreComponent,
-        NotFoundPageComponent
-    ]
+  imports: [
+    CommonModule,
+    MaterialModule.forRoot(),
+    RouterModule,
+    NavigationModule,
+    HomeModule,
+    TechnologyCarouselModule,
+  ],
+  declarations: [
+    CoreComponent,
+    NotFoundPageComponent
+  ],
+  exports: [
+    CoreComponent,
+    NotFoundPageComponent
+  ]
 })
 export class CoreModule {
 

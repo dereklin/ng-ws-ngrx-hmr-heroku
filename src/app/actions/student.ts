@@ -1,6 +1,5 @@
 import { type } from '../util';
 import { Action } from '@ngrx/store';
-import { State as AppState } from '../reducers';
 
 /**
  * For each action type in an action group, make a simple
