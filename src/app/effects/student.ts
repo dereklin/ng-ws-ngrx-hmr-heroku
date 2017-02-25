@@ -36,7 +36,7 @@ import * as fromRoot from '../reducers';
 
 @Injectable()
 export class StudentEffects {
-  @Effect()
+  @Effect({dispatch: false})
   private load$: Observable<Action> = this.actions$
     .ofType(student.ActionTypes.LOAD_STUDENTS)
     .debounceTime(2000)

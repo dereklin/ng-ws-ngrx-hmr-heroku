@@ -1,4 +1,15 @@
+<!--
 <primeng-data-table
   [tableData]="studentTableData$ | async"
   [cols]="studentTableCols"
 ></primeng-data-table>
+-->
+<p-dataTable [value]="studentTableData" [lazy]="true" [rows]="10" [paginator]="true" 
+            [totalRecords]="totalRecords" (onLazyLoad)="loadStudentsLazy($event)">
+    <p-column field="name" header="Name"></p-column>
+    <p-column field="account" header="Account"></p-column>
+    <p-column field="street" header="Street"></p-column>
+    <p-column field="city" header="City"></p-column>
+    <p-column field="state" header="State"></p-column>
+    <p-column field="email" header="Email"></p-column>
+</p-dataTable>

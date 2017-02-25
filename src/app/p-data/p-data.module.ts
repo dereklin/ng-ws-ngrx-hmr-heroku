@@ -1,15 +1,17 @@
 import { PrimengDataTableModule } from '../primeng-data-table';
+import { PDataComponent } from './p-data.component';
 import { CommonModule } from '@angular/common';
-// Angular Imports
 import { NgModule } from '@angular/core';
+import { DataTableModule } from 'primeng/primeng';
+// Angular Imports
 
 // This Module's Components
-import { PDataComponent } from './p-data.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        PrimengDataTableModule
+        PrimengDataTableModule,
+        DataTableModule
     ],
     declarations: [
         PDataComponent,

@@ -1,3 +1,4 @@
+import { LazyLoadEvent } from 'primeng/primeng';
 import { StudentService } from '../services/student.service';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs/Rx';
@@ -13,7 +14,11 @@ import * as student from '../actions/student';
 export class PDataComponent implements OnInit, OnDestroy {
   public studentTableData$: Observable<any[]>;
   public studentTableCols: any[];
-  private getStudentDataSub: Subscription;
+  public totalRecords: number = 0;
+  public studentTableData: any[];
+  private studentsSource: any[];
+  private $getStudentData: Subscription;
+  private $studentData: Subscription;
   constructor(private store: Store<fromRoot.State>,
               private cdRef: ChangeDetectorRef,
               private studentService: StudentService) {
@@ -29,13 +34,27 @@ export class PDataComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
-    this.getStudentDataSub = this.studentService.getStudents().subscribe((res) => {
+    this.$getStudentData = this.studentService.getStudents().subscribe((res) => {
       this.store.dispatch(new student.LoadStudentAction(res));
+    });
+    this.$studentData = this.studentTableData$.subscribe((students: any) => {
+      this.studentsSource = students;
+      this.totalRecords = this.studentsSource.length;
+      this.studentTableData = this.studentsSource.slice(0, 10);
     });
   }
 
+  public loadStudentsLazy(event: LazyLoadEvent) {
+        setTimeout(() => {
+            if (this.studentsSource) {
+                this.studentTableData =
+                  this.studentsSource.slice(event.first, (event.first + event.rows));
+            }
+        }, 250);
+    }
+
   public ngOnDestroy() {
-    this.getStudentDataSub.unsubscribe();
+    this.$getStudentData.unsubscribe();
     this.store.dispatch(new student.StopLoadingAction());
   }
 
