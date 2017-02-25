@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 import '../styles/headings.css';
 import '../styles/styles.scss';
 import 'rxjs/add/operator/take';

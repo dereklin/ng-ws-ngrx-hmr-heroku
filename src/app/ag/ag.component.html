@@ -1,4 +1,19 @@
-<ag-grid-table
-  [rowData] = "studentTableData$ | async"
-  [gridOptions]="gridOptions"
-></ag-grid-table>
+<!--<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      Test
+    </div>
+    <div class="col-sm-8">
+      <ag-simple-grid></ag-simple-grid>
+    </div>
+  </div>
+</div>
+
+-->
+<div class="containerX">
+  <div [fxLayout]="direction" (click)="toggleDirection()" class="colored box">
+    <div fxFlex="20"> fxFlex="20" </div>
+    <div fxFlex="60"> <ag-simple-grid></ag-simple-grid> </div>
+    <div fxFlex> fxFlex </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 
 // This Module's Components
 import { AgGridTableComponent } from './ag-grid-table.component';
-import { AgGridModule } from 'ag-grid-ng2/main';
+import { AgGridModule } from 'ag-grid-angular/main';
 
 @NgModule({
     imports: [
