@@ -8,5 +8,6 @@ import { GridOptions } from 'ag-grid/main';
 })
 export class AgGridTableComponent {
   @Input() public gridOptions: GridOptions;
+  @Input() public extraOptions: any;
   @Input() public rowData: any[];
 }

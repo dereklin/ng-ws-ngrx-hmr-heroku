@@ -17,6 +17,7 @@ import * as student from '../../actions/student';
 })
 export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
   public gridOptions: GridOptions;
+  public extraOptions: any;
   public studentTableData$: Observable<any[]>;
   private getStudentDataSub: Subscription;
   constructor(private store: Store<fromRoot.State>,
@@ -33,7 +34,9 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
       ],
       enableRangeSelection: true,
       rowSelection: 'multiple',
-      rowHeight: 22,
+      rowHeight: 22
+    };
+    this.extraOptions = {
       width: '100%',
       height: '99.55%'
     };
