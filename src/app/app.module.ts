@@ -2,7 +2,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import '../styles/headings.css';
 import '../styles/styles.scss';
 import 'rxjs/add/operator/take';
-import { AboutComponent } from './about';
 import { AgModule } from './ag/ag.module';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
@@ -51,7 +50,6 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
     NoContentComponent
   ],
   imports: [ // import Angular's modules

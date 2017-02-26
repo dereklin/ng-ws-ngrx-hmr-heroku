@@ -1,5 +1,5 @@
 import { Store } from '@ngrx/store';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import * as fromRoot from '../../reducers';
 import * as tech from '../../actions/technology';
 import * as student from '../../actions/student';
@@ -10,11 +10,16 @@ import * as student from '../../actions/student';
     styleUrls: ['bootstrap-tab-nav.component.scss']
 })
 export class BootstrapTabNavComponent {
+  @Output() public close: EventEmitter<any> = new EventEmitter();
   private technologies: any = {};
   constructor(private store: Store<fromRoot.State>) {
     this.technologies['ag-grid'] = ['Simple', 'Large'];
   }
   public onClick(technology) {
-    this.store.dispatch(new tech.LoadTechnologiesAction(this.technologies[technology]));
+    console.log('clicked');
+    this.close.emit(null);
+    console.log('emitted close');
+    // this.store.dispatch(new tech.LoadTechnologiesAction(this.technologies[technology]));
   }
+
 }

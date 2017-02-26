@@ -43,7 +43,9 @@ module.exports = {
     { rel: 'stylesheet', href: '/assets/primeng/resources/primeng.min.css' },
     { rel: 'stylesheet', href: '/assets/owl-carousel/owl.carousel.css' },
     { rel: 'stylesheet', href: '/assets/owl-carousel/owl.theme.default.css' },
-    { rel: 'stylesheet', href: '/assets/owl-carousel/owl.theme.green.css' }
+    { rel: 'stylesheet', href: '/assets/owl-carousel/owl.theme.green.css' },
+    { rel: 'stylesheet', href: '/assets/angular/material/core/theming/prebuilt/deeppurple-amber.css' }
+    
   ],
   meta: [
     { name: 'msapplication-TileColor', content: '#00bcd4' },

@@ -265,6 +265,7 @@ module.exports = function (options) {
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
       new CopyWebpackPlugin([
+        { from: 'node_modules/@angular/material/core/theming', to: 'assets/angular/material/core/theming' },
         { from: 'node_modules/owl.carousel/dist/assets', to: 'assets/owl-carousel' },
         { from: 'node_modules/primeng', to: 'assets/primeng' },
         { from: 'node_modules/bootstrap/dist/css/', to: 'assets/bootstrap' },

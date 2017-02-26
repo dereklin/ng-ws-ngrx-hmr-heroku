@@ -5,7 +5,7 @@ export interface State {
 }
 
 const initialState: State = {
-  technologies: ['Simple', 'Complicated']
+  technologies: ['Tech1', 'Tech2']
 };
 
 export function reducer(state = initialState, action: technology.Actions): State {
