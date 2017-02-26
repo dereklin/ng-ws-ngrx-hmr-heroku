@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { DataTableModule } from 'primeng/primeng';
+import { DataTableModule } from 'primeng/components/datatable/datatable';
 // Angular Imports
 import { NgModule } from '@angular/core';
 

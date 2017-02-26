@@ -20,6 +20,7 @@ export class CoreComponent implements OnInit {
   public loading: boolean = true;
   public technologies$: Observable<any[]> = this.store.select(fromRoot.getTechnologies);
   public technologies: any[];
+  public carouselOptions: any = {};
   constructor(private store: Store<fromRoot.State>, private router: Router) {
     router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event);

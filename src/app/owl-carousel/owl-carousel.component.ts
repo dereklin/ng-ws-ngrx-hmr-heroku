@@ -24,7 +24,7 @@ export class OwlCarouselComponent implements OnChanges, AfterViewInit, OnDestroy
 
   constructor(private el: ElementRef) {}
 
-  public ngOnChanges() {
+  public ngOnChanges(unused: any) {
     if (this.$owlElement) {
       setTimeout(() => {
         this.$owlElement = $(this.el.nativeElement).owlCarousel(this.options);

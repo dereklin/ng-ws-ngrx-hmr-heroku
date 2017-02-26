@@ -18,7 +18,7 @@ export class TechnologyCarouselComponent implements OnChanges, AfterViewInit, On
 
   constructor(private el: ElementRef) { }
 
-  public ngOnChanges() {
+  public ngOnChanges(unused: any) {
     if (this.$owlElement) {
     setTimeout(() => {
       this.$owlElement = $(this.el.nativeElement).owlCarousel(this.options);

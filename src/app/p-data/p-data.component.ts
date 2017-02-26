@@ -1,4 +1,4 @@
-import { LazyLoadEvent } from 'primeng/primeng';
+import { LazyLoadEvent } from 'primeng/components/common/api';
 import { StudentService } from '../services/student.service';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs/Rx';
