@@ -1,5 +1,13 @@
-<technology-carousel
-  [technologies]="technologies$ | async"
-></technology-carousel>
-<bootstrap-tab-nav></bootstrap-tab-nav>
-<router-outlet></router-outlet>
+<div class="flex-container" fxLayout="column">
+  <div class="flex-item" fxFlex="60px">
+    <technology-carousel [technologies]="technologies$ | async"></technology-carousel>
+  </div>
+
+  <div class="flex-item" fxFlex="40px">
+    <bootstrap-tab-nav></bootstrap-tab-nav>
+  </div>
+
+  <div class="flex-item" fxFlex>
+    <router-outlet></router-outlet>
+  </div>
+</div>

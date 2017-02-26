@@ -10,10 +10,40 @@
 </div>
 
 -->
+<!--
 <div class="containerX">
-  <div [fxLayout]="direction" (click)="toggleDirection()" class="colored box">
-    <div fxFlex="20"> fxFlex="20" </div>
-    <div fxFlex="60"> <ag-simple-grid></ag-simple-grid> </div>
-    <div fxFlex> fxFlex </div>
+  <div class="flex-container"
+      fxLayout="row" 
+      class="colored box">
+    <div fxFlex="50"> fxFlex="20" </div>
+    <div fxFlex="50"> <ag-simple-grid></ag-simple-grid> </div>
+  </div>
+</div>-->
+<!--
+<div class="containerX">
+  <div class="flex-container"
+      fxLayout="row" 
+      class="colored box">
+    <div fxFlex="50"> fxFlex="20" </div>
+    <div fxFlex="50"> hello </div>
+  </div>
+</div>
+-->
+
+
+<div class="flex-container" fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+  <div class="flex-item" fxFlex="50%" fxFlexFill>
+    <div fxLayout="column" fxFlexFill>
+      <div class="flex-item" fxFlex="60px">
+        Search
+      </div>
+      <div class="flex-item" fxFlex fxFlexFill>
+        <!--<ag-simple-grid></ag-simple-grid>-->grid
+
+      </div>
+    </div>
+  </div>
+  <div class="flex-item" fxFlex="50%" fxFlexFill>
+    <ag-simple-grid></ag-simple-grid>
   </div>
 </div>

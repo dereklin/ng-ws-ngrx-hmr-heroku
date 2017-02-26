@@ -3,7 +3,10 @@ import { GridOptions } from 'ag-grid/main';
 import { Subscription } from 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  HostListener, AfterViewInit, ChangeDetectorRef,
+  Component, OnDestroy, OnInit
+} from '@angular/core';
 import * as fromRoot from '../../reducers';
 import * as student from '../../actions/student';
 
@@ -29,7 +32,10 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
         { field: 'email', headerName: 'Email' }
       ],
       enableRangeSelection: true,
-      rowSelection: 'multiple'
+      rowSelection: 'multiple',
+      rowHeight: 22,
+      width: '100%',
+      height: '99.55%'
     };
     this.studentTableData$ = this.store.select(fromRoot.getStudents);
   }
@@ -47,5 +53,13 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public ngAfterViewInit() {
     this.gridOptions.api.sizeColumnsToFit();
+  }
+
+  // tslint:disable-next-line:member-access
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    setTimeout(() => {
+      this.gridOptions.api.sizeColumnsToFit();
+    }, 0);
   }
 }
