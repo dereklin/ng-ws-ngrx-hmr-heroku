@@ -109,4 +109,6 @@ export const getTechnologyState = (state: State) => state.technology;
  */
  export const getStudents = createSelector(getStudentState, fromStudent.getStudents);
 
+ export const getSelectedStudent = createSelector(getStudentState, fromStudent.getSelectedStudent);
+
  export const getTechnologies = createSelector(getTechnologyState, fromTechnology.getTechnologies);

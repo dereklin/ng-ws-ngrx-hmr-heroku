@@ -1,4 +1,7 @@
+import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
+import * as fromRoot from '../reducers';
+import * as student from '../actions/student';
 
 const DIRECTIONS = ['row', 'row-reverse', 'column', 'column-reverse'];
 @Component({
@@ -7,10 +10,10 @@ const DIRECTIONS = ['row', 'row-reverse', 'column', 'column-reverse'];
   styleUrls: ['ag.component.scss']
 })
 export class AgComponent {
-  public direction: string = 'row';
+  constructor(private store: Store<fromRoot.State>) { }
 
-  public toggleDirection() {
-    let next = (DIRECTIONS.indexOf(this.direction) + 1) % DIRECTIONS.length;
-    this.direction = DIRECTIONS[next];
+  public selectRow() {
+    let myIndex = Math.floor(Math.random() * 1000);
+    this.store.dispatch(new student.SelectStudentAction(myIndex));
   }
 }

@@ -1,41 +1,8 @@
-<!--<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-4">
-      Test
-    </div>
-    <div class="col-sm-8">
-      <ag-simple-grid></ag-simple-grid>
-    </div>
-  </div>
-</div>
-
--->
-<!--
-<div class="containerX">
-  <div class="flex-container"
-      fxLayout="row" 
-      class="colored box">
-    <div fxFlex="50"> fxFlex="20" </div>
-    <div fxFlex="50"> <ag-simple-grid></ag-simple-grid> </div>
-  </div>
-</div>-->
-<!--
-<div class="containerX">
-  <div class="flex-container"
-      fxLayout="row" 
-      class="colored box">
-    <div fxFlex="50"> fxFlex="20" </div>
-    <div fxFlex="50"> hello </div>
-  </div>
-</div>
--->
-
-
 <div class="flex-container" fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
   <div class="flex-item" fxFlex="50%" fxFlexFill>
     <div fxLayout="column" fxFlexFill>
       <div class="flex-item" fxFlex="60px">
-        Search
+        <button (click)="selectRow()">Select a row</button>
       </div>
       <div class="flex-item" fxFlex fxFlexFill>
         <!--<ag-simple-grid></ag-simple-grid>-->grid

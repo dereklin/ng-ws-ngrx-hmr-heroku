@@ -13,6 +13,7 @@ import { Action } from '@ngrx/store';
 export class ActionTypes {
   public static readonly LOAD_STUDENTS =       type('[Student] Load');
   public static readonly STOP_LOADING =       type('[Student] Stop Loading');
+  public static readonly SELECT_STUDENT =       type('[Student] Select Student');
 };
 
 export class LoadStudentAction implements Action {
@@ -24,21 +25,12 @@ export class StopLoadingAction implements Action {
   public readonly type = ActionTypes.STOP_LOADING;
 }
 
-export type Actions
-  = LoadStudentAction | StopLoadingAction;
-
-/*
-export type Actions
-  = SetRootStateAction;
-
-import { Action } from '@ngrx/store';
-export const LOAD_STUDENTS =  '[Student] Load';
-
-export class  LoadStudentAction implements Action {
-  public readonly type = LOAD_STUDENTS;
-  constructor(public payload: any[]) { }
+export class SelectStudentAction implements Action {
+  public readonly type = ActionTypes.SELECT_STUDENT;
+  constructor(public payload: number) { }
 }
 
 export type Actions
-  = LoadStudentAction;
-*/
+  = LoadStudentAction |
+  StopLoadingAction |
+  SelectStudentAction;

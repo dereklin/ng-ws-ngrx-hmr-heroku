@@ -36,11 +36,11 @@ import * as fromRoot from '../reducers';
 
 @Injectable()
 export class StudentEffects {
-  @Effect({dispatch: false})
+  @Effect({dispatch: true})
   private load$: Observable<Action> = this.actions$
     .ofType(student.ActionTypes.LOAD_STUDENTS)
-    .debounceTime(2000)
-    .delay(2000)
+    .debounceTime(1000)
+    .delay(1000)
     .withLatestFrom(this.store, (action, state) => state.student.loading)
     .filter((x) => x)
     .switchMap(() => {

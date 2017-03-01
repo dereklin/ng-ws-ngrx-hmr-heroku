@@ -19,6 +19,7 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
   public gridOptions: GridOptions;
   public extraOptions: any;
   public studentTableData$: Observable<any[]>;
+  public selectedStudent$: Observable<any>;
   private getStudentDataSub: Subscription;
   constructor(private store: Store<fromRoot.State>,
               private cdRef: ChangeDetectorRef,
@@ -41,6 +42,7 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
       height: '99.55%'
     };
     this.studentTableData$ = this.store.select(fromRoot.getStudents);
+    this.selectedStudent$ = this.store.select(fromRoot.getSelectedStudent);
   }
 
   public ngOnInit() {
