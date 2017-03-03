@@ -15,6 +15,7 @@ export class PDataComponent implements OnInit, OnDestroy {
   public studentTableData$: Observable<any[]>;
   public studentTableCols: any[];
   public totalRecords: number = 0;
+  public recordsPerPage: number = 500;
   public studentTableData: any[];
   private studentsSource: any[];
   private $getStudentData: Subscription;
@@ -40,7 +41,7 @@ export class PDataComponent implements OnInit, OnDestroy {
     this.$studentData = this.studentTableData$.subscribe((students: any) => {
       this.studentsSource = students;
       this.totalRecords = this.studentsSource.length;
-      this.studentTableData = this.studentsSource.slice(0, 10);
+      this.studentTableData = this.studentsSource.slice(0, this.recordsPerPage);
     });
   }
 
