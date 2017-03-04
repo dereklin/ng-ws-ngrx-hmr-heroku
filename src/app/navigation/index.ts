@@ -8,10 +8,12 @@ import { RouterModule } from '@angular/router';
 import { SidebarHandleComponent } from './sidebar-handle/sidebar-handle.component';
 
 @NgModule({
-  imports:      [BrowserModule, RouterModule],
+  imports: [BrowserModule, RouterModule],
   declarations: [TopbarComponent, SidebarComponent,
-      FooterComponent, BootstrapTabNavComponent, SidebarHandleComponent],
-  exports:    [TopbarComponent, SidebarComponent,
-      FooterComponent, BootstrapTabNavComponent, SidebarHandleComponent]
+    FooterComponent, BootstrapTabNavComponent,
+    SidebarHandleComponent, FooterComponent],
+  exports: [TopbarComponent, SidebarComponent,
+    FooterComponent, BootstrapTabNavComponent,
+    SidebarHandleComponent, FooterComponent]
 })
-export class NavigationModule {}
+export class NavigationModule { }

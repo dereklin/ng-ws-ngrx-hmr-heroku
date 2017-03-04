@@ -1,7 +1,9 @@
+@import '../../../styles/variables';
+
 :host() {
-    color: #fff;
+    color: $nav-text-color;
     padding: 10px;
-    background-color: #555;
+    background-color:  $nav-background-color;
     font-size: 0.9em;
     text-align: center;
     position: fixed;
