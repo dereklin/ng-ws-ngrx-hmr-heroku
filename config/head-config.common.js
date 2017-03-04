@@ -41,6 +41,7 @@ module.exports = {
     { rel: 'stylesheet', href: '/assets/bootstrap/bootstrap.css' },
     { rel: 'stylesheet', href: '/assets/primeng/resources/themes/omega/theme.css' },
     { rel: 'stylesheet', href: '/assets/primeng/resources/primeng.min.css' },
+    { rel: 'stylesheet', href: '/assets/font-awesome/css/font-awesome.min.css' },
     { rel: 'stylesheet', href: '/assets/owl-carousel/owl.carousel.css' },
     { rel: 'stylesheet', href: '/assets/owl-carousel/owl.theme.default.css' },
     { rel: 'stylesheet', href: '/assets/owl-carousel/owl.theme.green.css' },

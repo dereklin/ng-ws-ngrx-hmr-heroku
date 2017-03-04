@@ -268,6 +268,8 @@ module.exports = function (options) {
         { from: 'node_modules/@angular/material/core/theming', to: 'assets/angular/material/core/theming' },
         { from: 'node_modules/owl.carousel/dist/assets', to: 'assets/owl-carousel' },
         { from: 'node_modules/primeng/resources', to: 'assets/primeng/resources' },
+        { from: 'node_modules/font-awesome/css', to: 'assets/font-awesome/css' },
+        { from: 'node_modules/font-awesome/fonts', to: 'assets/font-awesome/fonts' },
         { from: 'node_modules/bootstrap/dist/css/', to: 'assets/bootstrap' },
         { from: 'node_modules/ag-grid/dist/styles/', to: 'assets/ag-grid' },
         { from: 'src/assets', to: 'assets' },

@@ -1,0 +1,18 @@
+<div class="flex-container" fxLayout="column" fxFlexFill>
+  <div class="flex-item" fxFlex="50px">
+    <top-bar></top-bar>
+  </div>
+  <div class="flex-item" fxFlex>
+    <div class="flex-container" fxLayout="row" fxFlexFill>
+      <div class="flex-item" fxFlex="120px" *ngIf="(sidebarState$ | async) === 'open'" [fxShow.xs]="false">
+        <div side-bar></div>
+      </div>
+      <div class="flex-item" fxFlex fxFlexFill>
+        <sidebar-handle [fxShow.xs]="false"></sidebar-handle>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <!-- footer placeholder -->
+  <div class="flex-item" fxFlex="40px"></div>
+</div>

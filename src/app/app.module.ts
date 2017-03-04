@@ -1,3 +1,4 @@
+import { NavigationModule } from './navigation';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import '../styles/headings.css';
 import '../styles/styles.scss';
@@ -57,10 +58,12 @@ type StoreType = {
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    FlexLayoutModule.forRoot(),
     CoreModule,
     HomeModule,
     AgModule,
     PDataModule,
+    NavigationModule,
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),

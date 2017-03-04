@@ -1,0 +1,6 @@
+<div (click)="openSidebar()" *ngIf="(sidebarState$ | async) === 'closed'">
+  <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<div (click)="closeSidebar()" *ngIf="(sidebarState$ | async) === 'open'">
+  <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
