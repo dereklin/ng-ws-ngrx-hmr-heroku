@@ -366,7 +366,6 @@ module.exports = function (options) {
       }),
 
       new webpack.ProvidePlugin({
-        faker: "faker",
         $: "jquery",
         jQuery: "jquery",
         "window.jQuery": "jquery"
