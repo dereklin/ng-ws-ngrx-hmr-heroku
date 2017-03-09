@@ -1,3 +1,7 @@
-<div class="side-bar">
-  I am the side bar
-</div>
+<template #rt let-result="result" let-term="term" let-formatter="formatter">
+  <ngb-highlight [result]="formatter(result)" [term]="term"></ngb-highlight>
+</template>
+
+<input type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt" />
+<hr>
+<pre>Model: {{ model | json }}</pre>
