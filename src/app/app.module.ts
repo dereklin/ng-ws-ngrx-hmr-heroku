@@ -1,3 +1,4 @@
+import { DelayService } from './services/delay.service';
 import { NavigationModule } from './navigation';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import '../styles/headings.css';
@@ -72,7 +73,8 @@ type StoreType = {
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    StudentService
+    StudentService,
+    DelayService
   ]
 })
 export class AppModule {

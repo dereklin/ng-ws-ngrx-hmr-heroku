@@ -1,3 +1,4 @@
+import { DelayService } from './services/delay.service';
 import { PDataComponent } from './p-data/p-data.component';
 import { HomeComponent } from './home/home.component';
 import { AgComponent } from './ag/ag.component';
@@ -14,11 +15,23 @@ export const ROUTES: Routes = [
     path: '',
     component: CoreComponent,
     children: [
-      {path: '',   redirectTo: '/home', pathMatch: 'full' },
-      {path: 'home', component: HomeComponent},
-      {path: 'ag', component: AgComponent},
-      {path: 'pd', component: PDataComponent},
-      {path: '**', component: NotFoundPageComponent}
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      {
+        path: 'home', component: HomeComponent, resolve: {
+          dummy: DelayService
+        }
+      },
+      {
+        path: 'ag', component: AgComponent, resolve: {
+          dummy: DelayService
+        }
+      },
+      {
+        path: 'pd', component: PDataComponent, resolve: {
+          dummy: DelayService
+        }
+      },
+      { path: '**', component: NotFoundPageComponent }
     ]
   }
 ];
