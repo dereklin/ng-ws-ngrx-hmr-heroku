@@ -8,9 +8,9 @@ export class DelayService implements Resolve<any> {
 
   public resolve(route: ActivatedRouteSnapshot) {
     return Observable.create((observer) => {
-      observer.next(42);
+      observer.next(true);
       observer.complete();
     })
-    .delay(100);
+    .delay(0);
   }
 }
