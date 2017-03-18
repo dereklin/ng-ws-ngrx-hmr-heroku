@@ -69,7 +69,7 @@ type StoreType = {
     NavigationModule,
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    // StoreDevtoolsModule.instrumentOnlyWithExtension(),
     EffectsModule.run(StudentEffects)
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
