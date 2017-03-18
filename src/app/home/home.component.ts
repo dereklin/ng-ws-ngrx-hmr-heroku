@@ -1,3 +1,4 @@
+import { LoggerService } from '../services/logger.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
     public title: string = 'My Angular';
+
+    constructor(private loggerService: LoggerService) {
+      this.loggerService.log('i am testing');
+    }
 }

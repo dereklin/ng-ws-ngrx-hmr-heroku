@@ -51,6 +51,7 @@
     "server:prod:ci": "http-server dist -p 3000 -c-1 --cors",
     "server": "npm run server:dev",
     "start:hmr": "npm run server:dev:hmr",
+    "start:hmr:log": "npm run start:hmr 2>&1 | tee log.log",
     "start": "npm run server:dev",
     "test": "npm run lint && karma start",
     "tslint": "tslint",
