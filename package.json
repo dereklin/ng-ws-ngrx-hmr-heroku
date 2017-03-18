@@ -37,7 +37,7 @@
     "github-deploy:prod": "webpack --config config/webpack.github-deploy.js --progress --profile --env.githubProd",
     "github-deploy": "npm run github-deploy:dev",
     "lint": "npm run tslint \"src/**/*.ts\"",
-
+    "postinstall": "npm run webdriver:update && npm run build:aot",
     "postversion": "git push && git push --tags",
     "preclean:install": "npm run clean",
     "preversion": "npm test",
@@ -106,7 +106,7 @@
     "lodash": "4.17.4",
     "owl.carousel": "2.2.0",
     "pg": "6.1.4",
-    "primeng": "2.0.4",
+    "primeng": "4.0.0-rc.1",
     "ramda": "^0.23.0",
     "reflect-metadata": "0.1.10",
     "reselect": "2.5.4",
