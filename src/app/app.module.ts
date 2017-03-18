@@ -77,7 +77,8 @@ type StoreType = {
     APP_PROVIDERS,
     StudentService,
     DelayService,
-    { provide: LoggerService, useClass: EvenBetterLoggerService }
+    { provide: LoggerService, useClass: EvenBetterLoggerService },
+    { provide: 'windowObject', useValue: window }
   ]
 })
 export class AppModule {
