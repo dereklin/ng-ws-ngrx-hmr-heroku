@@ -10,7 +10,7 @@ export class DelayService implements Resolve<any> {
     return Observable.create((observer) => {
       observer.next(true);
       observer.complete();
-    })
-    .delay(0);
+    });
+    // .delay(0);
   }
 }
