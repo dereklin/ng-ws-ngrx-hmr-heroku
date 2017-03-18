@@ -1,5 +1,3 @@
-import { EvenBetterLoggerService } from './services/even-better-logger.service';
-import { LoggerService } from './services/logger.service';
 import { DelayService } from './services/delay.service';
 import { NavigationModule } from './navigation';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -76,8 +74,7 @@ type StoreType = {
     ENV_PROVIDERS,
     APP_PROVIDERS,
     StudentService,
-    DelayService,
-    { provide: LoggerService, useClass: EvenBetterLoggerService }
+    DelayService
   ]
 })
 export class AppModule {
