@@ -1,4 +1,4 @@
-import { WindowService } from './services/window.service';
+import {WindowService } from './services/window.service';
 import { EvenBetterLoggerService } from './services/even-better-logger.service';
 import { LoggerService } from './services/logger.service';
 import { DelayService } from './services/delay.service';

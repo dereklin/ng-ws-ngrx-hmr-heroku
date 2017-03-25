@@ -39,7 +39,7 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
     };
     this.extraOptions = {
       width: '100%',
-      height: '99.55%'
+      height: '100%'
     };
     this.studentTableData$ = this.store.select(fromRoot.getStudents);
     this.selectedStudent$ = this.store.select(fromRoot.getSelectedStudent);

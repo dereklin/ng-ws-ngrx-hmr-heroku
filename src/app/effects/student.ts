@@ -36,8 +36,8 @@ import * as fromRoot from '../reducers';
 
 @Injectable()
 export class StudentEffects {
-  @Effect({dispatch: true})
-  private load$: Observable<Action> = this.actions$
+  @Effect({dispatch: false})
+  private load$: any = this.actions$
     .ofType(student.ActionTypes.LOAD_STUDENTS)
     .debounceTime(1000)
     .delay(1000)
@@ -47,7 +47,7 @@ export class StudentEffects {
       return this.studentService.getStudents();
     })
     .map((students: any[]) => {
-      return new student.LoadStudentAction(students);
+      // return new student.LoadStudentAction(students);
     });
 
   constructor(private actions$: Actions,
