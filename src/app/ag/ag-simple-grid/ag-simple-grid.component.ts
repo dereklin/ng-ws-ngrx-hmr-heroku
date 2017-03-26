@@ -65,6 +65,6 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
   onResize(event: any) {
     setTimeout(() => {
       this.gridOptions.api.sizeColumnsToFit();
-    }, 0);
+    }, 500);
   }
 }

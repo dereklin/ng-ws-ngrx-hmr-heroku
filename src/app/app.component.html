@@ -4,7 +4,7 @@
   </div>
   <div class="flex-item" fxFlex>
     <div class="flex-container" fxLayout="row" fxFlexFill>
-      <div class="flex-item h-100" fxFlex="200px" *ngIf="(sidebarState$ | async) === 'open'" [fxShow.xs]="false">
+      <div class="flex-item" fxFlex="200px" *ngIf="(sidebarState$ | async) === 'open'" [fxShow.xs]="false">
         <div fxFlexFill side-bar></div>
       </div>
       <div class="flex-item" fxFlex fxFlexFill>

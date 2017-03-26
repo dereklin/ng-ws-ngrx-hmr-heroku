@@ -10,7 +10,7 @@ export class WindowService {
     return this.$window;
   }
 
-  public resizeBy(timeout: number = 0) {
+  public resize(timeout: number = 0) {
     let e = document.createEvent('HTMLEvents');
     e.initEvent('resize', true, false);
     setTimeout(() => {

@@ -21,3 +21,11 @@ nav a {
 html {
   height: 100%;
 }
+
+.ag-grid-flex-container {
+  position: relative;
+}
+
+.ag-grid-flex-content {
+  position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+}
