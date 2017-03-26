@@ -37,7 +37,7 @@
     "github-deploy:prod": "webpack --config config/webpack.github-deploy.js --progress --profile --env.githubProd",
     "github-deploy": "npm run github-deploy:dev",
     "lint": "npm run tslint \"src/**/*.ts\"",
-    "xpostinstall": "npm run webdriver:update && npm run build:aot",
+    "postinstall": "npm run webdriver:update && npm run build:aot",
     "preclean:install": "npm run clean",
     "preversion": "npm test",
     "protractor": "protractor",
@@ -188,7 +188,7 @@
     "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
   },
   "engines": {
-    "node": "= 6.9.6",
+    "node": "= 6.9.7",
     "npm": "= 3.10.10"
   }
 }
