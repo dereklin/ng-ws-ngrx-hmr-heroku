@@ -1,0 +1,10 @@
+docker run -d -p 80:80 --name webserver angular-demo-app
+docker stop d6efbd4fc4e9
+docker ps
+docker images
+docker rmi -f 294d3ce1b821
+docker rm webserver2
+docker stop webserver
+docker start webserver
+
+

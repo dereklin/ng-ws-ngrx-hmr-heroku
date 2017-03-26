@@ -11,10 +11,11 @@ export function toString(value: any): string {
 @Component({
   selector: 'ngb-highlight',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<template ngFor [ngForOf]="parts" let-part let-isOdd="odd">` +
+  template: `<ng-template ngFor [ngForOf]="parts" let-part let-isOdd="odd">` +
       `<span *ngIf="isOdd" >{{part}}</span>` +
-      `<template [ngIf]="!isOdd"><span class="{{highlightClass}}">{{part}}</span></template>` +
-      `</template>`,
+      `<ng-template [ngIf]="!isOdd">` +
+      `<span class="{{highlightClass}}">{{part}}</span></ng-template>` +
+      `</ng-template>`,
       // template needs to be formatted in a certain way so we don't add empty text nodes
   styles: [`
     .ngb-highlight {
