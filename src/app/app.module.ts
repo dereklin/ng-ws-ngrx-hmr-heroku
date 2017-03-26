@@ -1,4 +1,5 @@
-import {WindowService } from './services/window.service';
+import { WindowRef } from './services/window-ref';
+import { WindowService } from './services/window.service';
 import { EvenBetterLoggerService } from './services/even-better-logger.service';
 import { LoggerService } from './services/logger.service';
 import { DelayService } from './services/delay.service';
@@ -80,7 +81,8 @@ type StoreType = {
     DelayService,
     { provide: LoggerService, useClass: EvenBetterLoggerService },
     { provide: 'windowObject', useValue: window },
-    WindowService
+    WindowService,
+    WindowRef
   ]
 })
 export class AppModule {
