@@ -43,6 +43,7 @@ export class MainAndNavComponent implements ChartComponent, OnInit, OnChanges {
   private navYAxis1: any;
   private navPriceLine: any;
   private wholeChartVisibleHeight: number;
+  private navChartBrush;
 
   constructor(private el: ElementRef, private cdRef: ChangeDetectorRef) {
     this.htmlElement = this.el.nativeElement;
@@ -128,6 +129,7 @@ export class MainAndNavComponent implements ChartComponent, OnInit, OnChanges {
       .style('text-anchor', 'end')
       .text('Volume');
     this.navPriceLine = this.navVisCont.append('path').attr('class', 'price line nav');
+    this.navChartBrush = this.navVisCont.append('g').attr('class', 'brush');
   }
 
   private renderMain() {
@@ -186,6 +188,9 @@ export class MainAndNavComponent implements ChartComponent, OnInit, OnChanges {
       .call(yAxisLeft);
 
     this.navPriceLine.attr('d', line(this._data));
+    this.navChartBrush.call(d3.brush().on('end', () => {
+      console.log('brush');
+    }));
   }
 
   private setup(): void {
