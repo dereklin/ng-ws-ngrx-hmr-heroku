@@ -37,6 +37,7 @@ import { combineReducers } from '@ngrx/store';
 import * as fromStudent from './student';
 import * as fromTechnology from './technology';
 import * as fromLayout from './layout';
+import * as fromStock from '../stock/reducers/stock';
 /**
  * As mentioned, we treat each reducer like a table in a database. This means
  * our top level state interface is just a map of keys to inner state types.
@@ -45,6 +46,7 @@ export interface State {
   student: fromStudent.State;
   technology: fromTechnology.State;
   layout: fromLayout.State;
+  stock: fromStock.State;
 }
 
 /**
@@ -57,7 +59,8 @@ export interface State {
 const reducers = {
   student: fromStudent.reducer,
   technology: fromTechnology.reducer,
-  layout: fromLayout.reducer
+  layout: fromLayout.reducer,
+  stock: fromStock.reducer
 };
 
 // Generate a reducer to set the root state in dev mode for HMR
@@ -100,6 +103,7 @@ export function reducer(state: any, action: any) {
 export const getStudentState = (state: State) => state.student;
 export const getTechnologyState = (state: State) => state.technology;
 export const getLayoutState = (state: State) => state.layout;
+export const getStockState = (state: State) => state.stock;
 
 /**
  * Every reducer module exports selector functions, however child reducers
@@ -111,10 +115,12 @@ export const getLayoutState = (state: State) => state.layout;
  * The created selectors can also be composed together to select different
  * pieces of state.
  */
- export const getStudents = createSelector(getStudentState, fromStudent.getStudents);
+export const getStudents = createSelector(getStudentState, fromStudent.getStudents);
 
- export const getSelectedStudent = createSelector(getStudentState, fromStudent.getSelectedStudent);
+export const getSelectedStudent = createSelector(getStudentState, fromStudent.getSelectedStudent);
 
- export const getTechnologies = createSelector(getTechnologyState, fromTechnology.getTechnologies);
+export const getTechnologies = createSelector(getTechnologyState, fromTechnology.getTechnologies);
 
- export const getSidebarState = createSelector(getLayoutState, fromLayout.getSidebarState);
+export const getSidebarState = createSelector(getLayoutState, fromLayout.getSidebarState);
+
+export const getStockData = createSelector(getStockState, fromStock.getStockData);

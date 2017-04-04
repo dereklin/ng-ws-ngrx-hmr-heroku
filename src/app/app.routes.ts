@@ -1,3 +1,4 @@
+import { StockComponent } from './stock/stock.component';
 import { DelayService } from './services/delay.service';
 import { PDataComponent } from './p-data/p-data.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +29,11 @@ export const ROUTES: Routes = [
       },
       {
         path: 'pd', component: PDataComponent, resolve: {
+          dummy: DelayService
+        }
+      },
+      {
+        path: 'stock', component: StockComponent, resolve: {
           dummy: DelayService
         }
       },

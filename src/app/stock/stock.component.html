@@ -1,0 +1,10 @@
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="col-2">
+      <button (click)="refresh()">Refresh</button>
+    </div>
+    <div class="container-relative col-10">
+      <linnovate-angular-charts [options]="stockChartOptions" [data]="stockData$ | async"></linnovate-angular-charts>
+    </div>
+  </div>
+</div>

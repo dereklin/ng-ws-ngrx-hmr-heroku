@@ -1,3 +1,4 @@
+import { StockModule } from './stock/stock.module';
 import { WindowRef } from './services/window-ref';
 import { WindowService } from './services/window.service';
 import { EvenBetterLoggerService } from './services/even-better-logger.service';
@@ -31,6 +32,7 @@ import { RouterStoreModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { Store } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StockService } from './services/stock.service';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -69,6 +71,7 @@ type StoreType = {
     AgModule,
     PDataModule,
     NavigationModule,
+    StockModule,
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
     // StoreDevtoolsModule.instrumentOnlyWithExtension(),
@@ -82,7 +85,8 @@ type StoreType = {
     { provide: LoggerService, useClass: EvenBetterLoggerService },
     { provide: 'windowObject', useValue: window },
     WindowService,
-    WindowRef
+    WindowRef,
+    StockService
   ]
 })
 export class AppModule {
