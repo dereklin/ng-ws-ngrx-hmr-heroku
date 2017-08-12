@@ -9,7 +9,7 @@ export function toString(value: any): string {
 }
 
 @Component({
-  selector: 'ngb-highlight',
+  selector: 'my-ngb-highlight',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<ng-template ngFor [ngForOf]="parts" let-part let-isOdd="odd">` +
       `<span *ngIf="isOdd" >{{part}}</span>` +
@@ -23,7 +23,7 @@ export function toString(value: any): string {
     }
   `]
 })
-export class NgbHighlightComponent implements OnChanges {
+export class MyNgbHighlightComponent implements OnChanges {
   public parts: string[];
 
   @Input() public highlightClass = 'ngb-highlight';

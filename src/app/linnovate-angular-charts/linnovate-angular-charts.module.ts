@@ -1,3 +1,4 @@
+import { ChainTransitionComponent } from './components/chain-transition/chain-transition.component';
 import { ChartDirective } from './chart.directive';
 import { CommonModule } from '@angular/common';
 // Angular Imports
@@ -14,7 +15,8 @@ import { MainAndNavComponent } from './components/main-and-nav/main-and-nav.comp
   declarations: [
     LinnovateAngularChartsComponent,
     MainAndNavComponent,
-    ChartDirective
+    ChartDirective,
+    ChainTransitionComponent
   ],
   exports: [
     LinnovateAngularChartsComponent,

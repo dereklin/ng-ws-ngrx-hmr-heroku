@@ -52,8 +52,6 @@
       "ban-keywords",
       "check-format"
     ],
-    "whitespace": [true, "check-branch", "check-decl", "check-operator",
-        "check-separator", "check-typecast", "check-type",
-        "check-typecast", "check-module"]
+    "whitespace": [true, "check-module"]
   }
 }

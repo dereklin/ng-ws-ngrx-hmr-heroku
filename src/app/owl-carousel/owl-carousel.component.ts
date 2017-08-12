@@ -18,7 +18,7 @@ import * as $ from 'jquery';
 })
 export class OwlCarouselComponent implements OnChanges, AfterViewInit, OnDestroy {
   @HostBinding('class') public defaultClass = 'owl-carousel';
-  @Input() public options: Object = {};
+  @Input() public options: object = {};
 
   public $owlElement: any;
 

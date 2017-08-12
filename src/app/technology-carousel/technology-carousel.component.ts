@@ -11,7 +11,7 @@ import 'owl.carousel';
 export class TechnologyCarouselComponent implements OnChanges, AfterViewInit, OnDestroy {
   @HostBinding('class') public defaultClass = 'owl-carousel';
   public selectedCarouselTicker: string = '';
-  @Input() public options: Object = {};
+  @Input() public options: object = {};
   @Input() public technologies: string[];
 
   public $owlElement: any;

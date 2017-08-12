@@ -10,7 +10,7 @@ import * as fromRouter from '@ngrx/router-store';
  *
  * More: https://drboolean.gitbooks.io/mostly-adequate-guide/content/ch5.html
  */
-import { compose } from '@ngrx/core/compose';
+import { compose } from '@ngrx/store';
 
 /**
  * storeFreeze prevents state from being mutated. When mutation occurs, an
@@ -56,7 +56,7 @@ export interface State {
  * wrapping that in storeLogger. Remember that compose applies
  * the result from right to left.
  */
-const reducers = {
+export const reducers = {
   student: fromStudent.reducer,
   technology: fromTechnology.reducer,
   layout: fromLayout.reducer,
@@ -64,8 +64,8 @@ const reducers = {
 };
 
 // Generate a reducer to set the root state in dev mode for HMR
-function stateSetter(reducer: ActionReducer<any>): ActionReducer<any> {
-  return (state, action) => {
+export function stateSetter(reducer: ActionReducer<any>): ActionReducer<any> {
+  return (state, action: any) => {
     if (action.type === 'SET_ROOT_STATE') {
       return action.payload;
     }
@@ -73,17 +73,7 @@ function stateSetter(reducer: ActionReducer<any>): ActionReducer<any> {
   };
 }
 
-const developmentReducer: ActionReducer<State> =
-  compose(stateSetter, storeFreeze, combineReducers)(reducers);
-const productionReducer: ActionReducer<State> = combineReducers(reducers);
-
-export function reducer(state: any, action: any) {
-  if (process.env.ENV === 'production') {
-    return productionReducer(state, action);
-  } else {
-    return developmentReducer(state, action);
-  }
-}
+export const metaReducers: Array<ActionReducer<any, any>> = [stateSetter];
 
 /**
  * A selector function is a map function factory. We pass it parameters and it

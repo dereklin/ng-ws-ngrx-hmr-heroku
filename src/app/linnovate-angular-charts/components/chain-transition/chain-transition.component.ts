@@ -6,11 +6,11 @@ import * as d3 from 'd3';
 import * as _ from 'lodash';
 
 @Component({
-    selector: 'main-and-nav',
+    selector: 'chain-transition',
     template: `<ng-content></ng-content>`,
-    styleUrls: ['main-and-nav.component.scss']
+    styleUrls: ['chain-transition.component.scss']
 })
-export class MainAndNavComponent implements ChartComponent, OnInit, OnChanges {
+export class ChainTransitionComponent implements ChartComponent, OnInit, OnChanges {
 
   public options: any;
 

@@ -247,13 +247,19 @@ module.exports = function (options) {
        * See: https://webpack.github.io/docs/list-of-plugins.html#contextreplacementplugin
        * See: https://github.com/angular/angular/issues/11580
        */
+      // new ContextReplacementPlugin(
+      //   // The (\\|\/) piece accounts for path separators in *nix and Windows
+      //   /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
+      //   helpers.root('src'), // location of your src
+      //   {
+      //     // your Angular Async Route paths relative to this root directory
+      //   }
+      // ),
+
       new ContextReplacementPlugin(
         // The (\\|\/) piece accounts for path separators in *nix and Windows
-        /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
-        helpers.root('src'), // location of your src
-        {
-          // your Angular Async Route paths relative to this root directory
-        }
+        /angular(\\|\/)core(\\|\/)@angular/,
+        helpers.root('src') // location of your src
       ),
 
       /*
@@ -265,7 +271,7 @@ module.exports = function (options) {
        * See: https://www.npmjs.com/package/copy-webpack-plugin
        */
       new CopyWebpackPlugin([
-        { from: 'node_modules/@angular/material/core/theming', to: 'assets/angular/material/core/theming' },
+        { from: 'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css', to: 'assets/angular/material/prebuilt-themes/deeppurple-amber.css' },
         { from: 'node_modules/owl.carousel/dist/assets', to: 'assets/owl-carousel' },
         { from: 'node_modules/primeng/resources', to: 'assets/primeng/resources' },
         { from: 'node_modules/font-awesome/css', to: 'assets/font-awesome/css' },

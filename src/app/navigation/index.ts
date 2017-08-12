@@ -1,4 +1,4 @@
-import { NgbHighlightComponent } from './ngb-highlight.component';
+import { MyNgbHighlightComponent } from './my-ngb-highlight.component';
 import { FormsModule } from '@angular/forms';
 import { BootstrapTabNavComponent } from './bootstrap-tab-nav/bootstrap-tab-nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,10 +18,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [TopbarComponent, SidebarComponent,
     FooterComponent, BootstrapTabNavComponent,
     SidebarHandleComponent, FooterComponent,
-    NgbHighlightComponent],
+    MyNgbHighlightComponent],
   exports: [TopbarComponent, SidebarComponent,
     FooterComponent, BootstrapTabNavComponent,
     SidebarHandleComponent, FooterComponent,
-    NgbHighlightComponent]
+    MyNgbHighlightComponent]
 })
 export class NavigationModule { }

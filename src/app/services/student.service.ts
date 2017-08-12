@@ -6,7 +6,7 @@ import * as faker from 'faker';
 export class StudentService {
 
   public getStudents(): Observable<any[]> {
-    let data = [];
+    const data = [];
     for (let i = 0; i < 10; i++) {
       data.push({
         name: faker.name.findName(),

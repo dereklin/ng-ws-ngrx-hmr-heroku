@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     RouterModule,
     NavigationModule,
     HomeModule,

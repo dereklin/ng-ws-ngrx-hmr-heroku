@@ -10,7 +10,7 @@ export class PrimengDataTableComponent {
   @Input() public cols: any[];
 
   public displayData(store, key) {
-    let myKeys = key.split('.');
+    const myKeys = key.split('.');
     let value: any = store;
     myKeys.forEach((k) => {
       value = value[k];

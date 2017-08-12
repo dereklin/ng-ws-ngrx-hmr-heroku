@@ -45,7 +45,7 @@ module.exports = {
     { rel: 'stylesheet', href: '/assets/owl-carousel/owl.carousel.css' },
     { rel: 'stylesheet', href: '/assets/owl-carousel/owl.theme.default.css' },
     { rel: 'stylesheet', href: '/assets/owl-carousel/owl.theme.green.css' },
-    { rel: 'stylesheet', href: '/assets/angular/material/core/theming/prebuilt/deeppurple-amber.css' }
+    { rel: 'stylesheet', href: '/assets/angular/material/prebuilt-themes/deeppurple-amber.css' }
     
   ],
   meta: [

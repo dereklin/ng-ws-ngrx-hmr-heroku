@@ -30,12 +30,12 @@ export class LinnovateAngularChartsComponent implements AfterViewInit, OnChanges
   }
 
   public loadComponent() {
-    let componentFactory =
+    const componentFactory =
       this._componentFactoryResolver.resolveComponentFactory(MainAndNavComponent);
-    let viewContainerRef = this.chartHost.viewContainerRef;
+    const viewContainerRef = this.chartHost.viewContainerRef;
     viewContainerRef.clear();
-    let componentRef = viewContainerRef.createComponent(componentFactory);
-    this.componentInstance = (<ChartComponent> componentRef.instance);
+    const componentRef = viewContainerRef.createComponent(componentFactory);
+    this.componentInstance = (componentRef.instance as ChartComponent);
     this.componentInstance.data = this.data;
     this.componentInstance.options = this.options;
     // if (this.data) {

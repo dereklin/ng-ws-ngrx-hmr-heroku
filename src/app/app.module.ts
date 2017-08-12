@@ -19,7 +19,7 @@ import { ENV_PROVIDERS } from './environment';
 import { HomeModule } from './home/home.module';
 import { NoContentComponent } from './no-content';
 import { PDataModule } from './p-data';
-import { reducer, State as AppState } from './reducers';
+import { reducers, State as AppState, metaReducers } from './reducers';
 import { StudentService } from './services/student.service';
 import { ApplicationRef, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +28,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { createInputTransfer, createNewHosts, removeNgStyles } from '@angularclass/hmr';
 import { EffectsModule } from '@ngrx/effects';
-import { RouterStoreModule } from '@ngrx/router-store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { Store } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -45,11 +45,11 @@ const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS
 ];
 
-type StoreType = {
-  rootState: AppState,
-  restoreInputValues: () => void,
-  disposeOldHosts: () => void
-};
+interface StoreType {
+  rootState: AppState;
+  restoreInputValues: () => void;
+  disposeOldHosts: () => void;
+}
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -72,10 +72,10 @@ type StoreType = {
     PDataModule,
     NavigationModule,
     StockModule,
-    StoreModule.provideStore(reducer),
-    RouterStoreModule.connectRouter(),
+    StoreModule.forRoot(reducers, {metaReducers}),
+    StoreRouterConnectingModule,
     // StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    EffectsModule.run(StudentEffects)
+    EffectsModule.forRoot([StudentEffects])
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
