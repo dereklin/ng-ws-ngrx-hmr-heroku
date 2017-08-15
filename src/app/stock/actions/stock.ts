@@ -12,7 +12,7 @@ import { Action } from '@ngrx/store';
 
 export class ActionTypes {
   public static readonly UPDATE_STOCK_DATA =       type('[Stock] Update Stock Data');
-};
+}
 
 export class UpdateStockDataAction implements Action {
   public readonly type = ActionTypes.UPDATE_STOCK_DATA;

@@ -7,6 +7,6 @@ export class StockService {
 
   public getStockData() {
     return this.http.request('./assets/mock-data/stock-data.json')
-      .map((res: Response) => { return res.json().data; });
+      .map((res: Response) => res.json().data);
   }
 }

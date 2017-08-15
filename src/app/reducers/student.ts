@@ -29,7 +29,7 @@ export function reducer(state = initialState, action: student.Actions): State {
       };
     }
     case student.ActionTypes.SELECT_STUDENT: {
-      let mySelecctedStudent = state.students[action.payload];
+      const mySelecctedStudent = state.students[action.payload];
       return {
         students: state.students,
         loading: state.loading,

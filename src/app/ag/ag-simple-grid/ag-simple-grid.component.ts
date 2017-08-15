@@ -24,7 +24,7 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(private store: Store<fromRoot.State>,
               private cdRef: ChangeDetectorRef,
               private studentService: StudentService) {
-    this.gridOptions = <GridOptions> {
+    this.gridOptions = {
       columnDefs: [
         { field: 'name', headerName: 'Name' },
         { field: 'account', headerName: 'Account' },
@@ -36,7 +36,7 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
       enableRangeSelection: true,
       rowSelection: 'multiple',
       rowHeight: 22
-    };
+    } as GridOptions;
     this.extraOptions = {
       width: '100%',
       height: '100%'
@@ -62,7 +62,7 @@ export class AgSimpleGridComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // tslint:disable-next-line:member-access
   @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
+  public onResize(event: any) {
     setTimeout(() => {
       this.gridOptions.api.sizeColumnsToFit();
     }, 500);

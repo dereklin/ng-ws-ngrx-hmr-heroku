@@ -1,5 +1,5 @@
 import { animate, Component, ElementRef, Renderer,
-    state, style, transition, trigger, ViewChild} from '@angular/core';
+    state, style, transition, trigger, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
@@ -41,17 +41,17 @@ export class SidebarComponent {
 
   constructor(private renderer: Renderer) {}
 
-  public formatter = (result: string) => { return result; };
+  public formatter = (result: string) => result;
 
   public search = (text$: Observable<string>) =>
     text$
       .debounceTime(200)
       .distinctUntilChanged()
       .map((term) => term === '' ? []
-        : states.filter((v) => new RegExp(term, 'gi').test(v)).slice(0, 10));
+        : states.filter((v) => new RegExp(term, 'gi').test(v)).slice(0, 10))
 
   public sendInputEvent() {
-    let e = document.createEvent('KeyboardEvent');
+    const e = document.createEvent('KeyboardEvent');
     // e.initKeyboardEvent('keydown', true, true, null, '', 0, '', false, '');
     e.initKeyboardEvent('input', true, true, null, '', 0, '', false, '');
 

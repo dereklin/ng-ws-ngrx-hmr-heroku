@@ -14,7 +14,7 @@ export class ActionTypes {
   public static readonly LOAD_STUDENTS =       type('[Student] Load');
   public static readonly STOP_LOADING =       type('[Student] Stop Loading');
   public static readonly SELECT_STUDENT =       type('[Student] Select Student');
-};
+}
 
 export class LoadStudentAction implements Action {
   public readonly type = ActionTypes.LOAD_STUDENTS;

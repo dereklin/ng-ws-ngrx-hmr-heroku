@@ -6,7 +6,7 @@ export class EvenBetterLoggerService extends LoggerService {
   constructor() { super(); }
 
   public log(message: string) {
-    let name = 'test';
+    const name = 'test';
     super.log(`Message to ${name}: ${message}`);
   }
 }

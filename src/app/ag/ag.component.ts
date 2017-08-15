@@ -13,7 +13,7 @@ export class AgComponent {
   constructor(private store: Store<fromRoot.State>) { }
 
   public selectRow() {
-    let myIndex = Math.floor(Math.random() * 1000);
+    const myIndex = Math.floor(Math.random() * 1000);
     this.store.dispatch(new student.SelectStudentAction(myIndex));
   }
 }

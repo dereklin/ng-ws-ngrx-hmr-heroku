@@ -11,7 +11,7 @@ export class WindowService {
   }
 
   public resize(timeout: number = 0) {
-    let e = document.createEvent('HTMLEvents');
+    const e = document.createEvent('HTMLEvents');
     e.initEvent('resize', true, false);
     setTimeout(() => {
       this.winRef.nativeWindow.dispatchEvent(e);

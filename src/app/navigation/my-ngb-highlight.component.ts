@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, ChangeDetectionStrategy, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, ChangeDetectionStrategy, SimpleChanges } from '@angular/core';
 
 export function regExpEscape(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
