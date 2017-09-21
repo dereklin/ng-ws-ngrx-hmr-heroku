@@ -73,7 +73,7 @@ export function stateSetter(reducer: ActionReducer<any>): ActionReducer<any> {
   };
 }
 
-export const metaReducers: Array<ActionReducer<any, any>> = [stateSetter];
+export const metaReducers: any = [stateSetter];
 
 /**
  * A selector function is a map function factory. We pass it parameters and it
