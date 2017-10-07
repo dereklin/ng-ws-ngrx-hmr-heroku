@@ -33,6 +33,7 @@ import { StoreModule } from '@ngrx/store';
 import { Store } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StockService } from './services/stock.service';
+import { NoConflictStyleCompatibilityMode } from '@angular/material';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -75,7 +76,8 @@ interface StoreType {
     StoreModule.forRoot(reducers, {metaReducers}),
     StoreRouterConnectingModule,
     // StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    EffectsModule.forRoot([StudentEffects])
+    EffectsModule.forRoot([StudentEffects]),
+    NoConflictStyleCompatibilityMode
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

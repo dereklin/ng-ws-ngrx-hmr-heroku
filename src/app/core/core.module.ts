@@ -6,7 +6,7 @@ import { NavigationModule } from '../navigation';
 import { CoreComponent } from './core.component';
 import { NotFoundPageComponent } from './not-found-page';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { MatCardModule, MatProgressBarModule, MatButtonModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 // Angular Imports
 
@@ -15,7 +15,9 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatButtonModule,
     RouterModule,
     NavigationModule,
     HomeModule,

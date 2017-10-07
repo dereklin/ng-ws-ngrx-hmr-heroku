@@ -272,6 +272,7 @@ module.exports = function (options) {
        */
       new CopyWebpackPlugin([
         { from: 'node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css', to: 'assets/angular/material/prebuilt-themes/deeppurple-amber.css' },
+        { from: 'node_modules/@angular/material/prebuilt-themes/indigo-pink.css', to: 'assets/angular/material/prebuilt-themes/indigo-pink.css' },
         { from: 'node_modules/owl.carousel/dist/assets', to: 'assets/owl-carousel' },
         { from: 'node_modules/primeng/resources', to: 'assets/primeng/resources' },
         { from: 'node_modules/font-awesome/css', to: 'assets/font-awesome/css' },
